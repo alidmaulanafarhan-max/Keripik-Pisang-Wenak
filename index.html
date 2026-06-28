@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banana Crunch – Keripik Pisang Wenak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:   #F5C518;
+      --brown:    #3B1F0A;
+      --brown2:   #5C2E0A;
+      --cream:    #FFF8EC;
+      --orange:   #E8711A;
+      --white:    #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 5%;
+      background: rgba(59,31,10,0.92);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 900;
+      color: var(--yellow);
+      letter-spacing: 1px;
+    }
+    .nav-logo span { color: var(--white); }
+    nav ul {
+      list-style: none; display: flex; gap: 32px;
+    }
+    nav ul a {
+      color: var(--cream); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;
+      transition: color .2s;
+    }
+    nav ul a:hover { color: var(--yellow); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(145deg, var(--brown) 0%, var(--brown2) 60%, #7A3A10 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      padding-top: 80px;
+    }
+    /* Decorative banana shapes */
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,197,24,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(232,113,26,0.14) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 60px;
+      max-width: 1100px; width: 90%; z-index: 2;
+    }
+    .hero-text { }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--yellow); color: var(--brown);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; padding: 4px 12px;
+      border-radius: 2px; margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.05; margin-bottom: 8px;
+    }
+    .hero-title .accent { color: var(--yellow); }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: var(--yellow); font-weight: 300;
+      letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-desc {
+      color: rgba(255,248,236,0.78);
+      font-size: 0.95rem; line-height: 1.75;
+      max-width: 460px; margin-bottom: 36px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--yellow); color: var(--brown);
+      padding: 14px 32px; border-radius: 4px;
+      font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; letter-spacing: 0.5px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(245,197,24,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,197,24,0.45); }
+    .btn-outline {
+      display: inline-block; margin-left: 16px;
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--white); padding: 12px 28px;
+      border-radius: 4px; font-size: 0.9rem; font-weight: 500;
+      text-decoration: none; transition: background .2s, border-color .2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+    .hero-image {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-frame {
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      border: 4px solid rgba(245,197,24,0.4);
+      overflow: hidden; position: relative;
+      box-shadow: 0 0 60px rgba(245,197,24,0.2);
+      background: rgba(255,248,236,0.07);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+    }
+    .hero-img-placeholder {
+      font-size: 5rem; text-align: center;
+    }
+    .hero-img-label {
+      color: rgba(255,248,236,0.5);
+      font-size: 0.78rem; letter-spacing: 1px;
+      text-align: center;
+    }
+    /* Wave divider */
+    .wave-divider { line-height: 0; }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 90px 5%; }
+    .section-eyebrow {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; color: var(--brown);
+      line-height: 1.15; margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 0.95rem; color: #5a3a1a;
+      line-height: 1.8; max-width: 640px;
+    }
+    .center { text-align: center; }
+    .center .section-desc { margin: 0 auto; }
+
+    /* ─── ABOUT ─── */
+    #tentang { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 70px; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .about-img-frame {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #FFF3D4, #FFE0A0);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+      box-shadow: 0 20px 60px rgba(59,31,10,0.1);
+      border: 2px dashed #F5C518;
+    }
+    .about-img-frame .emoji { font-size: 5rem; }
+    .about-img-frame .placeholder-text {
+      font-size: 0.78rem; color: #a07040;
+      letter-spacing: 1px; text-align: center;
+    }
+    .about-content { }
+    .about-content .section-desc { max-width: 100%; margin-bottom: 24px; }
+    .about-badges {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px;
+    }
+    .badge {
+      background: var(--cream); border: 1.5px solid var(--yellow);
+      color: var(--brown); font-size: 0.78rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px;
+    }
+
+    /* ─── PRODUK ─── */
+    #produk { background: var(--cream); }
+    .produk-header {
+      max-width: 1100px; margin: 0 auto 50px;
+      text-align: center;
+    }
+    .produk-intro {
+      font-size: 0.95rem; color: #5a3a1a;
+      line-height: 1.8; max-width: 700px; margin: 16px auto 0;
+    }
+    .produk-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px; max-width: 800px; margin: 0 auto;
+    }
+    .produk-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(59,31,10,0.08);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .produk-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(59,31,10,0.15); }
+    .card-img {
+      width: 100%; aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      font-size: 3.5rem;
+    }
+    .card-img.original { background: linear-gradient(135deg, #FFF8EC, #FFE7B0); }
+    .card-img.coklat   { background: linear-gradient(135deg, #F5E0C4, #D4956A); }
+    .card-img .img-placeholder-text {
+      font-size: 0.72rem; color: #a07040;
+      letter-spacing: 0.5px; text-align: center;
+    }
+    .card-body { padding: 22px 24px 26px; }
+    .card-rasa {
+      display: inline-block;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 3px 10px;
+      border-radius: 20px; margin-bottom: 10px;
+    }
+    .original .card-rasa { background: #FFF3D4; color: var(--orange); }
+    .coklat   .card-rasa { background: #3B1F0A; color: var(--yellow); }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--brown); margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 0.83rem; color: #7a5030;
+      line-height: 1.65; margin-bottom: 18px;
+    }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card-price {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--orange);
+      font-family: 'Playfair Display', serif;
+    }
+    .card-price span { font-size: 0.7rem; font-weight: 400; color: #a07040; }
+    .btn-order {
+      background: var(--brown); color: var(--yellow);
+      padding: 9px 18px; border-radius: 6px;
+      font-size: 0.8rem; font-weight: 600;
+      text-decoration: none; transition: background .2s;
+    }
+    .btn-order:hover { background: var(--brown2); }
+
+    /* ─── FILOSOFI ─── */
+    #filosofi {
+      background: linear-gradient(160deg, var(--brown) 0%, var(--brown2) 100%);
+      color: var(--cream);
+    }
+    .filosofi-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      align-items: center;
+    }
+    #filosofi .section-eyebrow { color: var(--yellow); }
+    #filosofi .section-title { color: var(--white); }
+    #filosofi .section-desc { color: rgba(255,248,236,0.78); max-width: 100%; }
+    .filosofi-cards {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .filo-card {
+      background: rgba(255,248,236,0.06);
+      border: 1px solid rgba(245,197,24,0.25);
+      border-radius: 12px; padding: 22px 24px;
+    }
+    .filo-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .filo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--yellow); margin-bottom: 6px;
+    }
+    .filo-desc { font-size: 0.83rem; color: rgba(255,248,236,0.72); line-height: 1.7; }
+
+    /* ─── KONTAK ─── */
+    #kontak { background: var(--white); }
+    .kontak-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    }
+    .kontak-list { display: flex; flex-direction: column; gap: 20px; margin-top: 28px; }
+    .kontak-item {
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .kontak-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      border-radius: 10px; background: var(--cream);
+      border: 1.5px solid var(--yellow);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .kontak-info { }
+    .kontak-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 3px; }
+    .kontak-value { font-size: 0.9rem; color: var(--brown); line-height: 1.5; }
+    .kontak-value a { color: var(--brown); text-decoration: none; }
+    .kontak-value a:hover { color: var(--orange); }
+    .kontak-wa {
+      background: linear-gradient(135deg, #F5C518, #E8711A);
+      border-radius: 12px; padding: 32px;
+      display: flex; flex-direction: column; gap: 14px;
+      justify-content: center;
+    }
+    .kontak-wa h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--brown); font-weight: 700;
+    }
+    .kontak-wa p { font-size: 0.88rem; color: var(--brown2); line-height: 1.65; }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--brown); color: var(--yellow);
+      padding: 13px 24px; border-radius: 8px;
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; width: fit-content;
+      transition: transform .2s;
+    }
+    .btn-wa:hover { transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--brown);
+      color: rgba(255,248,236,0.6);
+      text-align: center;
+      padding: 28px 5%;
+      font-size: 0.8rem;
+    }
+    footer strong { color: var(--yellow); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text > * { animation: fadeUp .7s ease both; }
+    .hero-eyebrow  { animation-delay: .1s; }
+    .hero-title    { animation-delay: .25s; }
+    .hero-subtitle { animation-delay: .35s; }
+    .hero-desc     { animation-delay: .45s; }
+    .hero-btns     { animation-delay: .55s; }
+    .hero-image    { animation: fadeUp .9s .4s ease both; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hero-inner, .about-grid, .filosofi-inner, .kontak-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-inner { text-align: center; }
+      .hero-desc { margin: 0 auto 30px; }
+      .hero-image { order: -1; }
+      .hero-img-frame { width: 260px; height: 260px; margin: 0 auto; }
+      .about-img-frame { max-width: 320px; margin: 0 auto; }
+      .kontak-wa { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Banana<span>Crunch</span></div>
+  <ul>
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#produk">Produk</a></li>
+    <li><a href="#filosofi">Filosofi</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-eyebrow">🍌 Camilan Rumahan Berkualitas</span>
+      <h1 class="hero-title">Banana<br><span class="accent">Crunch</span></h1>
+      <p class="hero-subtitle">Keripik Pisang Wenak</p>
+      <p class="hero-desc">
+        Keripik pisang rumahan yang berdedikasi, hadir menghadirkan camilan gurih dan renyah bagi keluarga Indonesia. Dibuat dari pisang kepok pilihan, tanpa pengawet, dan penuh cinta.
+      </p>
+      <div class="hero-btns">
+        <a href="#produk" class="btn-primary">Lihat Produk</a>
+        <a href="#kontak" class="btn-outline">Hubungi Kami</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-img-frame">
+        <div class="hero-img-placeholder">🍌</div>
+        <p class="hero-img-label">Foto Produk<br>Banana Crunch</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-divider" style="background:#3B1F0A;">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,60 C360,0 1080,60 1440,20 L1440,60 Z" fill="#FFF"/>
+  </svg>
+</div>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="about-grid">
+    <div class="about-img-frame">
+      <div class="emoji">🍌🥐</div>
+      <p class="placeholder-text">Foto Usaha / Logo<br>Banana Crunch</p>
+    </div>
+    <div class="about-content">
+      <p class="section-eyebrow">Tentang Kami</p>
+      <h2 class="section-title">Dari Dapur, Untuk Keluarga Indonesia</h2>
+      <p class="section-desc" style="margin-bottom:16px;">
+        Banana Crunch didirikan dengan keyakinan bahwa bisnis adalah sebuah perjalanan panjang yang bermakna. Kami berkomitmen untuk terus melangkah maju dalam berinovasi, bergerak bersama menggerakkan ekonomi lokal, dan mengantarkan kebaikan nutrisi pisang ke setiap sudut yang bisa kami jangkau.
+      </p>
+      <p class="section-desc">
+        Banana Crunch hadir dengan tujuan menghadirkan camilan keripik pisang dengan varian rasa yang diolah secara alami dari hulu ke hilir, tanpa terlalu banyak perantara — sehingga pelanggan bisa menikmati keripik yang lebih segar, murni, dan bernilai tinggi.
+      </p>
+      <div class="about-badges">
+        <span class="badge">🚫 Tanpa Pengawet</span>
+        <span class="badge">🍌 Pisang Kepok Pilihan</span>
+        <span class="badge">🏡 Produksi Rumahan</span>
+        <span class="badge">💛 Penuh Cinta</span>
+        <span class="badge">🌿 Alami</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUK -->
+<section id="produk">
+  <div class="produk-header">
+    <p class="section-eyebrow">Menu Produk</p>
+    <h2 class="section-title">Keripik Pisang Wenak</h2>
+    <p class="produk-intro">
+      Keripik Pisang Wenak hadir dari komitmen untuk mengubah pisang biasa menjadi camilan modern dengan kelezatan aneka rasa yang begitu nyata, renyah, dan mencolok kualitasnya sejak gigitan pertama.
+    </p>
+  </div>
+  <div class="produk-grid">
+    <!-- Original -->
+    <div class="produk-card original">
+      <div class="card-img original">
+        🍌
+        <span class="img-placeholder-text">Foto Keripik Original</span>
+      </div>
+      <div class="card-body">
+        <span class="card-rasa">Original</span>
+        <h3 class="card-name">Keripik Pisang Wenak<br>Original</h3>
+        <p class="card-desc">Rasa asli pisang kepok yang gurih dan renyah. Diolah secara alami tanpa pengawet, cocok dinikmati kapan saja bersama keluarga.</p>
+        <div class="card-footer">
+          <div class="card-price">Rp 5.000 <span>/pcs</span></div>
+          <a href="https://wa.me/6285274197048?text=Halo%20Banana%20Crunch!%20Saya%20mau%20pesan%20Keripik%20Original" class="btn-order" target="_blank">Pesan</a>
+        </div>
+      </div>
+    </div>
+    <!-- Coklat -->
+    <div class="produk-card coklat">
+      <div class="card-img coklat">
+        🍫
+        <span class="img-placeholder-text">Foto Keripik Coklat</span>
+      </div>
+      <div class="card-body">
+        <span class="card-rasa">Coklat</span>
+        <h3 class="card-name">Keripik Pisang Wenak<br>Coklat</h3>
+        <p class="card-desc">Perpaduan sempurna antara kerenyahan keripik pisang dengan lelehan coklat manis. Sensasi baru yang memanjakan lidah di setiap gigitan.</p>
+        <div class="card-footer">
+          <div class="card-price">Rp 6.000 <span>/pcs</span></div>
+          <a href="https://wa.me/6285274197048?text=Halo%20Banana%20Crunch!%20Saya%20mau%20pesan%20Keripik%20Coklat" class="btn-order" target="_blank">Pesan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILOSOFI -->
+<section id="filosofi">
+  <div class="filosofi-inner">
+    <div>
+      <p class="section-eyebrow">Filosofi Kami</p>
+      <h2 class="section-title">Kesederhanaan &amp; Kualitas dalam Setiap Gigitan</h2>
+      <p class="section-desc">
+        Nama <strong style="color:var(--yellow)">Banana Crunch</strong> melambangkan perpaduan antara kesederhanaan dan kualitas. Kata "Banana" mencerminkan bahan baku utama berupa pisang pilihan yang kaya manfaat dari alam. Sementara "Crunch" menggambarkan tekstur renyah yang menjadi ciri khas produk kami — memberikan pengalaman camilan yang memuaskan di setiap gigitan.
+      </p>
+    </div>
+    <div class="filosofi-cards">
+      <div class="filo-card">
+        <div class="filo-icon">🍌</div>
+        <div class="filo-title">Banana — Bahan Pilihan Alam</div>
+        <p class="filo-desc">Pisang kepok segar dipilih langsung dari sumber panen terbaik, memastikan kualitas dan nutrisi yang terjaga di setiap produk.</p>
+      </div>
+      <div class="filo-card">
+        <div class="filo-icon">✨</div>
+        <div class="filo-title">Crunch — Renyah Sejati</div>
+        <p class="filo-desc">Tekstur renyah adalah janji kami. Setiap proses produksi dirancang untuk menghadirkan gigitan sempurna yang tak terlupakan.</p>
+      </div>
+      <div class="filo-card">
+        <div class="filo-icon">🤝</div>
+        <div class="filo-title">Menggerakkan Ekonomi Lokal</div>
+        <p class="filo-desc">Dengan rantai distribusi yang ringkas, kami mendukung petani lokal dan menghadirkan produk berkualitas langsung ke tangan pelanggan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="kontak-inner">
+    <div>
+      <p class="section-eyebrow">Hubungi Kami</p>
+      <h2 class="section-title">Ayo Pesan Sekarang!</h2>
+      <div class="kontak-list">
+        <div class="kontak-item">
+          <div class="kontak-icon">📱</div>
+          <div class="kontak-info">
+            <p class="kontak-label">WhatsApp</p>
+            <p class="kontak-value"><a href="https://wa.me/6285274197048" target="_blank">+62 852-7419-7048</a></p>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">📧</div>
+          <div class="kontak-info">
+            <p class="kontak-label">Email</p>
+            <p class="kontak-value"><a href="mailto:bananacrunch.id@gmail.com">bananacrunch.id@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">📍</div>
+          <div class="kontak-info">
+            <p class="kontak-label">Lokasi</p>
+            <p class="kontak-value">Teluk Belibi, Punggung Kasik, Lubuk Alung,<br>Padang Pariaman, Sumatera Barat, Indonesia</p>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">⏰</div>
+          <div class="kontak-info">
+            <p class="kontak-label">Jam Operasional</p>
+            <p class="kontak-value">Setiap Hari, 07.00 – 22.00 WIB</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="kontak-wa">
+      <h3>Pesan via WhatsApp Sekarang 🍌</h3>
+      <p>Dapatkan keripik pisang segar langsung dari dapur kami ke tangan Anda. Respon cepat dan ramah!</p>
+      <a href="https://wa.me/6285274197048?text=Halo%20Banana%20Crunch!%20Saya%20ingin%20memesan%20keripik%20pisang." target="_blank" class="btn-wa">
+        💬 Chat WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 <strong>Banana Crunch</strong> — Keripik Pisang Wenak. Dibuat dengan 💛 di Padang Pariaman, Sumatera Barat.</p>
+</footer>
+
+</body>
+</html>
