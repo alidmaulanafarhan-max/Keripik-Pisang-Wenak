@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keripik Pisang Wenak — Camilan Gurih Renyah dari Pisang Kepok Pilihan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF3E4;
+    --kraft:#EAD6AE;
+    --kraft-dark:#DEC190;
+    --gold:#D4972C;
+    --gold-dark:#B87A1E;
+    --brown:#2C1810;
+    --brown-soft:#4A2E1F;
+    --cocoa:#6B3A2C;
+    --cocoa-dark:#4A2619;
+    --green:#5C7A4C;
+    --white:#FFFDF8;
+    --shadow: 0 10px 30px rgba(44,24,16,0.15);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    background:var(--cream);
+    color:var(--brown);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Lilita One', sans-serif;
+    font-weight:400;
+    letter-spacing:0.5px;
+  }
+  .script{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:0.95rem;
+    cursor:pointer;
+    border:none;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-3px);}
+  .btn-primary{
+    background:var(--gold);
+    color:var(--white);
+    box-shadow:0 8px 20px rgba(212,151,44,0.4);
+  }
+  .btn-primary:hover{box-shadow:0 12px 26px rgba(212,151,44,0.5);}
+  .btn-outline{
+    background:transparent;
+    border:2px solid var(--brown);
+    color:var(--brown);
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.75rem;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--cocoa);
+    background:rgba(107,58,44,0.08);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(250,243,228,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(44,24,16,0.08);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+    max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Lilita One', sans-serif;
+    font-size:1.35rem;
+    color:var(--brown);
+  }
+  .logo .badge{
+    width:42px; height:42px;
+    background:var(--gold);
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+    box-shadow:0 4px 10px rgba(212,151,44,0.4);
+    transform:rotate(-6deg);
+  }
+  .logo span.sub{
+    display:block;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight:600;
+    font-size:0.6rem;
+    letter-spacing:2px;
+    color:var(--cocoa);
+    text-transform:uppercase;
+  }
+  .nav-links{
+    display:flex; gap:32px; align-items:center;
+    font-weight:600; font-size:0.95rem;
+  }
+  .nav-links a{ position:relative; padding:4px 0; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-2px;
+    width:0; height:2px; background:var(--gold);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{display:none;}
+  @media(min-width:900px){ .nav-cta{display:inline-flex;} }
+  .menu-toggle{
+    display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;
+  }
+  .menu-toggle span{width:24px; height:3px; background:var(--brown); border-radius:2px;}
+  @media(max-width:899px){
+    .nav-links{
+      position:fixed; top:73px; left:0; right:0;
+      background:var(--white);
+      flex-direction:column; align-items:flex-start;
+      padding:20px 24px 28px;
+      gap:18px;
+      box-shadow:var(--shadow);
+      transform:translateY(-130%);
+      transition:transform .3s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .menu-toggle{display:flex;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:70px 0 40px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; top:-120px; right:-160px;
+    width:480px; height:480px;
+    background:radial-gradient(circle, rgba(212,151,44,0.25), transparent 70%);
+    border-radius:50%;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1fr; gap:48px; align-items:center;
+    position:relative; z-index:2;
+  }
+  @media(min-width:900px){ .hero-grid{grid-template-columns:1.05fr 0.95fr;} }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.05;
+    color:var(--brown);
+  }
+  .hero h1 .accent{ color:var(--gold-dark); }
+  .hero p.lead{
+    margin-top:20px;
+    font-size:1.08rem;
+    line-height:1.75;
+    color:var(--brown-soft);
+    max-width:520px;
+  }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; }
+  .hero-stats{
+    display:flex; gap:28px; margin-top:44px; flex-wrap:wrap;
+  }
+  .stat b{
+    font-family:'Lilita One', sans-serif;
+    font-size:1.6rem;
+    color:var(--cocoa);
+    display:block;
+  }
+  .stat span{ font-size:0.8rem; color:var(--brown-soft); font-weight:600; }
+
+  .hero-art{ position:relative; }
+  .hero-art .float-tag{
+    position:absolute;
+    background:var(--white);
+    border-radius:16px;
+    padding:12px 16px;
+    box-shadow:var(--shadow);
+    font-weight:700;
+    font-size:0.85rem;
+    display:flex; align-items:center; gap:8px;
+    animation:bob 4s ease-in-out infinite;
+  }
+  .tag-1{ top:8%; left:-4%; animation-delay:.2s; }
+  .tag-2{ bottom:10%; right:-2%; animation-delay:1s; }
+  @keyframes bob{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  @media(max-width:560px){ .float-tag{display:none;} }
+
+  /* ===== SECTION GENERIC ===== */
+  section{ padding:90px 0; position:relative; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(1.9rem, 4vw, 2.6rem); color:var(--brown); line-height:1.15; }
+  .section-head p{ margin-top:16px; color:var(--brown-soft); line-height:1.75; font-size:1.02rem; }
+
+  /* ===== MAKNA / FILOSOFI ===== */
+  .filosofi{ background:var(--white); }
+  .makna-text{ max-width:760px; margin:0 auto 56px; text-align:center; }
+  .makna-text p{ font-size:1.05rem; line-height:1.85; color:var(--brown-soft); margin-top:16px; }
+  .word-break{
+    display:grid; grid-template-columns:1fr; gap:20px;
+  }
+  @media(min-width:760px){ .word-break{ grid-template-columns:repeat(3,1fr); } }
+  .word-card{
+    background:var(--cream);
+    border-radius:20px;
+    padding:32px 26px;
+    border:1px solid rgba(44,24,16,0.06);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .word-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .word-card .word{
+    font-family:'Lilita One', sans-serif;
+    font-size:1.5rem;
+    color:var(--gold-dark);
+    margin-bottom:10px;
+  }
+  .word-card p{ color:var(--brown-soft); line-height:1.7; font-size:0.95rem; }
+
+  /* ===== VALUES ===== */
+  .values{ background:var(--kraft); }
+  .values-grid{
+    display:grid; grid-template-columns:1fr; gap:24px;
+  }
+  @media(min-width:700px){ .values-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(min-width:1050px){ .values-grid{ grid-template-columns:repeat(4,1fr); } }
+  .value-card{
+    background:var(--white);
+    border-radius:18px;
+    padding:28px 22px;
+    box-shadow:0 6px 16px rgba(44,24,16,0.06);
+  }
+  .value-icon{
+    width:52px; height:52px; border-radius:14px;
+    background:var(--brown);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem; margin-bottom:16px;
+    transform:rotate(-4deg);
+  }
+  .value-card h3{ font-family:'Plus Jakarta Sans'; font-weight:800; font-size:1.05rem; margin-bottom:8px; }
+  .value-card p{ font-size:0.9rem; color:var(--brown-soft); line-height:1.6; }
+
+  /* ===== PRODUK / RAK ===== */
+  .produk{ background:var(--brown); color:var(--cream); }
+  .produk .section-head p{ color:#D9C7B4; }
+  .produk .eyebrow{ background:rgba(255,255,255,0.1); color:var(--gold); }
+  .shelf-wrap{
+    position:relative;
+    padding-top:20px;
+  }
+  .shelf-row{
+    display:grid; grid-template-columns:1fr; gap:40px;
+    margin-bottom:10px;
+  }
+  @media(min-width:760px){ .shelf-row{ grid-template-columns:1fr 1fr; } }
+  .pack-card{
+    position:relative;
+    display:flex; flex-direction:column; align-items:center;
+    padding-bottom:26px;
+  }
+  .pack-card .pouch-wrap{
+    filter:drop-shadow(0 18px 22px rgba(0,0,0,0.35));
+    transition:transform .3s ease;
+  }
+  .pack-card:hover .pouch-wrap{ transform:translateY(-8px) rotate(-1deg); }
+  .plank{
+    width:88%;
+    height:22px;
+    background:linear-gradient(180deg, #8a5a3c, #6e4429);
+    border-radius:4px;
+    margin-top:-6px;
+    box-shadow:0 10px 18px rgba(0,0,0,0.35), inset 0 2px 0 rgba(255,255,255,0.15);
+    position:relative;
+    z-index:2;
+  }
+  .plank::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:repeating-linear-gradient(90deg, rgba(0,0,0,0.08) 0 2px, transparent 2px 26px);
+    border-radius:4px;
+  }
+  .price-tag{
+    margin-top:22px;
+    background:var(--gold);
+    color:var(--brown);
+    font-family:'Lilita One', sans-serif;
+    font-size:1.15rem;
+    padding:10px 22px;
+    border-radius:999px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.25);
+  }
+  .pack-card h3{
+    margin-top:16px;
+    font-size:1.4rem;
+    color:var(--white);
+  }
+  .pack-card p.desc{
+    margin-top:8px;
+    text-align:center;
+    max-width:280px;
+    font-size:0.88rem;
+    color:#C9B69F;
+    line-height:1.6;
+  }
+  .flavor-badge{
+    position:absolute; top:-14px; right:20%;
+    background:var(--white);
+    color:var(--brown);
+    font-size:0.7rem; font-weight:800;
+    padding:6px 12px; border-radius:999px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+    z-index:3;
+  }
+
+  /* ===== TESTIMONI-ISH QUOTE ===== */
+  .quote-section{ background:var(--cream); text-align:center; padding:70px 0; }
+  .quote-section p.script{ font-size:clamp(1.6rem,4vw,2.3rem); color:var(--cocoa); max-width:760px; margin:0 auto; line-height:1.4; }
+  .quote-section .signoff{ margin-top:18px; font-weight:700; font-size:0.9rem; color:var(--brown-soft); letter-spacing:1px; }
+
+  /* ===== KONTAK ===== */
+  .kontak{ background:var(--white); }
+  .kontak-grid{
+    display:grid; grid-template-columns:1fr; gap:40px;
+  }
+  @media(min-width:900px){ .kontak-grid{ grid-template-columns:1fr 1fr; } }
+  .info-list{ display:flex; flex-direction:column; gap:22px; }
+  .info-item{ display:flex; gap:16px; align-items:flex-start; }
+  .info-icon{
+    width:48px; height:48px; flex-shrink:0;
+    border-radius:14px;
+    background:var(--kraft);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem;
+  }
+  .info-item h4{ font-size:0.95rem; font-weight:800; margin-bottom:4px; }
+  .info-item p, .info-item a{ font-size:0.92rem; color:var(--brown-soft); line-height:1.6; }
+  .info-item a:hover{ color:var(--gold-dark); }
+
+  .kontak-card{
+    background:var(--brown);
+    border-radius:24px;
+    padding:40px 32px;
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .kontak-card::after{
+    content:'🍌'; position:absolute; font-size:9rem; opacity:0.06; right:-20px; bottom:-30px; transform:rotate(15deg);
+  }
+  .kontak-card h3{ font-size:1.5rem; margin-bottom:12px; position:relative; z-index:1; }
+  .kontak-card p{ color:#D9C7B4; font-size:0.95rem; line-height:1.7; margin-bottom:26px; position:relative; z-index:1; }
+  .kontak-card .btn{ position:relative; z-index:1; }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--brown);
+    color:#C9B69F;
+    padding:36px 0;
+    text-align:center;
+    font-size:0.85rem;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  footer .script{ color:var(--gold); font-size:1.3rem; }
+
+  .reveal{
+    opacity:0; transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ===== CHECKOUT WIZARD ===== */
+  .checkout{ background:var(--kraft); }
+  .wizard{
+    background:var(--white);
+    border-radius:28px;
+    box-shadow:var(--shadow);
+    padding:36px 26px;
+    max-width:920px;
+    margin:0 auto;
+  }
+  @media(min-width:700px){ .wizard{ padding:44px 48px; } }
+
+  .steps-bar{
+    display:flex; align-items:center; justify-content:center;
+    gap:8px; margin-bottom:40px; flex-wrap:wrap;
+  }
+  .step-dot{
+    display:flex; align-items:center; gap:8px;
+    font-size:0.78rem; font-weight:800; color:var(--brown-soft);
+    opacity:0.45;
+  }
+  .step-dot.active{ opacity:1; color:var(--cocoa); }
+  .step-dot .num{
+    width:28px; height:28px; border-radius:50%;
+    background:var(--kraft); color:var(--brown);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Lilita One', sans-serif; font-size:0.85rem;
+  }
+  .step-dot.active .num{ background:var(--gold); color:var(--white); }
+  .step-dot.done .num{ background:var(--green); color:var(--white); }
+  .step-line{ width:26px; height:2px; background:var(--kraft-dark); }
+
+  .wizard-panel{ display:none; animation:fadeIn .4s ease; }
+  .wizard-panel.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  .wizard h3.panel-title{ font-size:1.4rem; margin-bottom:6px; }
+  .wizard p.panel-sub{ color:var(--brown-soft); font-size:0.92rem; margin-bottom:28px; }
+
+  /* product picker */
+  .product-pick{ display:grid; grid-template-columns:1fr; gap:18px; margin-bottom:28px; }
+  @media(min-width:600px){ .product-pick{ grid-template-columns:1fr 1fr; } }
+  .pick-card{
+    border:2px solid var(--kraft-dark);
+    border-radius:20px;
+    padding:20px;
+    display:flex; align-items:center; gap:16px;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .pick-card.filled{ border-color:var(--gold); background:rgba(212,151,44,0.06); }
+  .pick-card .emoji{
+    width:52px; height:52px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.5rem; flex-shrink:0;
+  }
+  .pick-card.original .emoji{ background:#F3D99A; }
+  .pick-card.coklat .emoji{ background:#C9A788; }
+  .pick-card .pick-info{ flex:1; }
+  .pick-card .pick-info h4{ font-size:1rem; font-weight:800; }
+  .pick-card .pick-info span{ font-size:0.82rem; color:var(--brown-soft); }
+  .qty-stepper{ display:flex; align-items:center; gap:10px; margin-top:10px; }
+  .qty-stepper button{
+    width:30px; height:30px; border-radius:50%; border:none;
+    background:var(--brown); color:var(--white); font-size:1rem; font-weight:800;
+    cursor:pointer;
+  }
+  .qty-stepper button:hover{ background:var(--gold-dark); }
+  .qty-stepper .qty-val{ font-family:'Lilita One', sans-serif; font-size:1.05rem; min-width:22px; text-align:center; }
+
+  .total-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--brown); color:var(--white);
+    border-radius:16px; padding:18px 24px; margin-bottom:8px;
+  }
+  .total-bar span{ font-size:0.85rem; color:#D9C7B4; font-weight:600; }
+  .total-bar b{ font-family:'Lilita One', sans-serif; font-size:1.5rem; color:var(--gold); }
+
+  /* method tabs */
+  .method-tabs{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px;
+  }
+  .method-tab{
+    padding:10px 18px; border-radius:999px; border:2px solid var(--kraft-dark);
+    background:var(--white); font-weight:700; font-size:0.85rem; cursor:pointer;
+    display:flex; align-items:center; gap:6px;
+    transition:all .2s ease;
+  }
+  .method-tab.active{ background:var(--gold); border-color:var(--gold); color:var(--white); }
+
+  .method-panel{ display:none; }
+  .method-panel.active{ display:block; animation:fadeIn .35s ease; }
+
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-size:0.85rem; font-weight:700; margin-bottom:7px; color:var(--brown); }
+  .field input, .field textarea{
+    width:100%; padding:13px 16px; border-radius:14px;
+    border:2px solid var(--kraft-dark); background:var(--cream);
+    font-family:'Plus Jakarta Sans', sans-serif; font-size:0.92rem; color:var(--brown);
+    outline:none; transition:border-color .2s ease;
+  }
+  .field input:focus, .field textarea:focus{ border-color:var(--gold); }
+  .field textarea{ resize:vertical; min-height:90px; }
+  .field-row{ display:grid; grid-template-columns:1fr; gap:16px; }
+  @media(min-width:600px){ .field-row{ grid-template-columns:1fr 1fr; } }
+
+  .pay-box{
+    background:var(--cream); border-radius:20px; padding:26px;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    gap:14px; margin-bottom:20px;
+  }
+  .pay-box .acc-number{
+    font-family:'Lilita One', sans-serif; font-size:1.3rem; letter-spacing:1px;
+    background:var(--white); border:2px dashed var(--gold); border-radius:14px;
+    padding:12px 22px; color:var(--brown);
+  }
+  .copy-btn{
+    background:var(--brown); color:var(--white); border:none; border-radius:999px;
+    padding:8px 18px; font-size:0.78rem; font-weight:700; cursor:pointer;
+  }
+  .qris-code{
+    width:180px; height:180px; background:var(--white); border-radius:16px;
+    padding:12px; box-shadow:var(--shadow);
+  }
+  .note-box{
+    background:rgba(92,122,76,0.1); border-left:4px solid var(--green);
+    padding:14px 18px; border-radius:10px; font-size:0.85rem; color:var(--brown-soft);
+    text-align:left; line-height:1.6;
+  }
+  .confirm-check{
+    display:flex; align-items:flex-start; gap:10px; background:var(--cream);
+    border-radius:14px; padding:16px 18px; margin-top:6px; cursor:pointer;
+  }
+  .confirm-check input{ margin-top:3px; width:18px; height:18px; accent-color:var(--gold); flex-shrink:0; }
+  .confirm-check span{ font-size:0.88rem; color:var(--brown-soft); }
+
+  .wizard-nav{ display:flex; justify-content:space-between; margin-top:32px; gap:12px; flex-wrap:wrap; }
+  .wizard-nav .btn{ font-size:0.88rem; padding:12px 24px; }
+  .btn-ghost{ background:var(--kraft); color:var(--brown); }
+
+  .summary-list{ list-style:none; margin-bottom:22px; }
+  .summary-list li{
+    display:flex; justify-content:space-between; padding:12px 0;
+    border-bottom:1px solid var(--kraft-dark); font-size:0.9rem;
+  }
+  .summary-list li b{ color:var(--brown); }
+  .summary-list li.total-line{ font-weight:800; font-size:1.05rem; border-bottom:none; padding-top:16px; }
+
+  .success-state{ text-align:center; padding:30px 10px; }
+  .success-state .big-emoji{ font-size:3.2rem; margin-bottom:14px; }
+  .success-state h3{ font-size:1.5rem; margin-bottom:10px; }
+  .success-state p{ color:var(--brown-soft); max-width:420px; margin:0 auto 24px; line-height:1.7; }
+
+  /* ===== KELUHAN ===== */
+  .keluhan{ background:var(--white); }
+  .keluhan-box{
+    background:var(--cream); border-radius:28px; padding:36px 26px;
+    max-width:720px; margin:0 auto; box-shadow:var(--shadow);
+  }
+  @media(min-width:600px){ .keluhan-box{ padding:44px 44px; } }
+  .keluhan-box .field{ margin-bottom:20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">
+      <span class="badge">🍌</span>
+      <span>KERIPIK PISANG<br><span class="sub">Wenak</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#makna">Makna Usaha</a></li>
+      <li><a href="#kenapa">Kenapa Kami</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#checkout">Pesan &amp; Bayar</a></li>
+      <li><a href="#keluhan">Keluhan</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+      <li class="nav-cta"><a href="#checkout" class="btn btn-primary">🛒 Pesan Sekarang</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">🍌 Camilan Rumahan Asli Sumatra Barat</span>
+        <h1>Gurih, Renyah,<br>dan Penuh <span class="accent">Cinta.</span></h1>
+        <p class="lead">Keripik Pisang Wenak — dibuat dari pisang kepok pilihan tanpa pengawet, diolah langsung dari petani ke dapur kami, lalu ke tanganmu. Setiap gigitan, cerita panjang tentang usaha yang bermakna.</p>
+        <div class="hero-actions">
+          <a href="#checkout" class="btn btn-primary">🛒 Pesan Sekarang</a>
+          <a href="#produk" class="btn btn-outline">Lihat Varian Rasa</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>2</b><span>Varian Rasa</span></div>
+          <div class="stat"><b>0%</b><span>Pengawet</span></div>
+          <div class="stat"><b>100%</b><span>Pisang Kepok Asli</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="float-tag tag-1">🌿 Tanpa Pengawet</div>
+        <div class="float-tag tag-2">⭐ Renyah Tiap Gigitan</div>
+        <!-- SVG hero pouch -->
+        <svg viewBox="0 0 420 460" width="100%" height="auto">
+          <ellipse cx="210" cy="430" rx="140" ry="18" fill="#2C1810" opacity="0.12"/>
+          <!-- pouch body -->
+          <path d="M100 150 Q90 320 130 400 Q210 440 290 400 Q330 320 320 150 Z" fill="#D4972C"/>
+          <path d="M100 150 Q90 320 130 400 Q210 440 290 400 Q330 320 320 150 Z" fill="url(#pouchGrad)"/>
+          <defs>
+            <linearGradient id="pouchGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#E4A93E"/>
+              <stop offset="100%" stop-color="#C6851F"/>
+            </linearGradient>
+          </defs>
+          <!-- top fold -->
+          <path d="M95 150 Q210 100 325 150 L320 175 Q210 130 100 175 Z" fill="#B87A1E"/>
+          <rect x="185" y="70" width="50" height="90" rx="10" fill="#8a5a3c"/>
+          <!-- label -->
+          <rect x="130" y="200" width="160" height="150" rx="18" fill="#FAF3E4"/>
+          <text x="210" y="250" text-anchor="middle" font-family="'Lilita One', sans-serif" font-size="26" fill="#2C1810">WENAK</text>
+          <text x="210" y="272" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#6B3A2C" letter-spacing="2">KERIPIK PISANG</text>
+          <circle cx="210" cy="308" r="26" fill="#D4972C"/>
+          <text x="210" y="314" text-anchor="middle" font-size="20">🍌</text>
+          <text x="210" y="340" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#6B3A2C" letter-spacing="1">ORIGINAL • RENYAH • ALAMI</text>
+          <!-- chips scattered -->
+          <ellipse cx="60" cy="380" rx="22" ry="10" fill="#E7B65A" transform="rotate(-12 60 380)"/>
+          <ellipse cx="355" cy="370" rx="20" ry="9" fill="#E7B65A" transform="rotate(10 355 370)"/>
+          <ellipse cx="330" cy="410" rx="16" ry="7" fill="#C6851F" transform="rotate(-20 330 410)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAKNA USAHA -->
+  <section class="filosofi" id="makna">
+    <div class="container">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <span class="eyebrow" style="margin-left:auto;margin-right:auto;">Tentang Kami</span>
+        <h2>Makna di Balik Nama<br>Keripik Pisang Wenak</h2>
+      </div>
+      <div class="makna-text">
+        <p>Keripik Pisang Wenak merupakan usaha keripik pisang rumahan yang berdedikasi menghadirkan camilan gurih dan renyah bagi keluarga Indonesia. Dibuat dari pisang kepok tanpa pengawet, dan penuh cinta.</p>
+        <p>Kami didirikan dengan keyakinan bahwa bisnis adalah perjalanan panjang yang bermakna — berkomitmen untuk terus melangkah maju dalam berinovasi, bergerak bersama menggerakkan ekonomi lokal, dan mengantarkan kebaikan nutrisi pisang ke setiap sudut tempat yang bisa kami jangkau.</p>
+        <p>Kami hadir dengan tujuan menghadirkan camilan keripik pisang dengan varian rasa yang diolah secara alami dari hulu ke hilir, tanpa melalui terlalu banyak perantara — agar pelanggan menikmati kelezatan dari hasil panen langsung yang lebih segar, murni, dan bernilai tinggi.</p>
+      </div>
+
+      <div class="word-break">
+        <div class="word-card">
+          <div class="word">🍌 Pisang</div>
+          <p>Mencerminkan bahan baku utama berupa pisang kepok pilihan, kaya manfaat dan berasal langsung dari alam.</p>
+        </div>
+        <div class="word-card">
+          <div class="word">🍪 Keripik</div>
+          <p>Menggambarkan tekstur renyah yang menjadi ciri khas produk kami — pengalaman menikmati camilan yang memuaskan di setiap gigitan.</p>
+        </div>
+        <div class="word-card">
+          <div class="word">😋 Wenak</div>
+          <p>Menggambarkan kelezatan keripik pisang yang terasa sejak pertama kali dicoba — nyata, renyah, dan mencolok kualitasnya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="container">
+      <p class="script reveal">"Perpaduan kesederhanaan dan kualitas — dari pisang biasa, menjadi camilan modern yang begitu nyata kelezatannya."</p>
+      <p class="signoff">— KERIPIK PISANG WENAK</p>
+    </div>
+  </section>
+
+  <!-- KENAPA KAMI -->
+  <section class="values" id="kenapa">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Kenapa Wenak</span>
+        <h2>Dari Kebun ke Kemasan,<br>Tanpa Basa-basi</h2>
+        <p>Rantai distribusi yang ringkas membuat keripik pisang kami sampai ke tanganmu dalam kondisi paling segar dan bernilai tinggi.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">🌱</div>
+          <h3>Tanpa Pengawet</h3>
+          <p>Diolah alami dari pisang kepok segar, tanpa bahan pengawet tambahan.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">🚜</div>
+          <h3>Hulu ke Hilir</h3>
+          <p>Diproduksi dari hasil panen langsung dengan rantai distribusi yang ringkas.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">❤️</div>
+          <h3>Dibuat dari Rumah</h3>
+          <p>Usaha rumahan yang berdedikasi, diolah dengan penuh perhatian dan cinta.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">🤝</div>
+          <h3>Ekonomi Lokal</h3>
+          <p>Setiap kemasan yang terjual turut menggerakkan ekonomi petani pisang lokal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK / RAK -->
+  <section class="produk" id="produk">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Varian Rasa</span>
+        <h2>Langsung dari Rak Kami<br>ke Meja Kamu</h2>
+        <p>Dua pilihan rasa, satu kualitas: renyah maksimal dari pisang kepok pilihan.</p>
+      </div>
+
+      <div class="shelf-wrap">
+        <div class="shelf-row">
+
+          <!-- ORIGINAL -->
+          <div class="pack-card reveal">
+            <span class="flavor-badge">TERLARIS</span>
+            <div class="pouch-wrap">
+              <svg viewBox="0 0 260 300" width="220">
+                <path d="M60 90 Q52 200 82 260 Q130 288 178 260 Q208 200 200 90 Z" fill="#E4A93E"/>
+                <path d="M58 90 Q130 60 202 90 L198 108 Q130 82 62 108 Z" fill="#B87A1E"/>
+                <rect x="115" y="42" width="30" height="55" rx="7" fill="#8a5a3c"/>
+                <rect x="85" y="128" width="90" height="95" rx="12" fill="#FAF3E4"/>
+                <text x="130" y="165" text-anchor="middle" font-family="'Lilita One', sans-serif" font-size="16" fill="#2C1810">WENAK</text>
+                <text x="130" y="180" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="700" fill="#6B3A2C" letter-spacing="1.5">KERIPIK PISANG</text>
+                <circle cx="130" cy="200" r="15" fill="#D4972C"/>
+                <text x="130" y="205" text-anchor="middle" font-size="12">🍌</text>
+              </svg>
+            </div>
+            <div class="plank"></div>
+            <h3>Original</h3>
+            <p class="desc">Rasa asli pisang kepok yang gurih alami, renyah maksimal tanpa perisa tambahan.</p>
+            <div class="price-tag">Rp 5.000</div>
+          </div>
+
+          <!-- COKLAT -->
+          <div class="pack-card reveal">
+            <span class="flavor-badge">FAVORIT</span>
+            <div class="pouch-wrap">
+              <svg viewBox="0 0 260 300" width="220">
+                <path d="M60 90 Q52 200 82 260 Q130 288 178 260 Q208 200 200 90 Z" fill="#6B3A2C"/>
+                <path d="M58 90 Q130 60 202 90 L198 108 Q130 82 62 108 Z" fill="#4A2619"/>
+                <rect x="115" y="42" width="30" height="55" rx="7" fill="#3a231a"/>
+                <rect x="85" y="128" width="90" height="95" rx="12" fill="#FAF3E4"/>
+                <text x="130" y="165" text-anchor="middle" font-family="'Lilita One', sans-serif" font-size="16" fill="#2C1810">WENAK</text>
+                <text x="130" y="180" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="700" fill="#6B3A2C" letter-spacing="1.5">KERIPIK PISANG</text>
+                <circle cx="130" cy="200" r="15" fill="#6B3A2C"/>
+                <text x="130" y="205" text-anchor="middle" font-size="12">🍫</text>
+              </svg>
+            </div>
+            <div class="plank"></div>
+            <h3>Coklat</h3>
+            <p class="desc">Balutan coklat manis yang melapisi kerenyahan keripik pisang — favorit anak-anak dan keluarga.</p>
+            <div class="price-tag">Rp 6.000</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <!-- CHECKOUT -->
+  <section class="checkout" id="checkout">
+    <div class="container">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <span class="eyebrow" style="margin-left:auto;margin-right:auto;">Pesan &amp; Bayar</span>
+        <h2>3 Langkah Mudah,<br>Keripik Sampai di Rumah</h2>
+        <p style="margin-left:auto;margin-right:auto;">Pilih rasa, tentukan cara antar &amp; bayar, lalu kirim pesanan langsung ke WhatsApp kami.</p>
+      </div>
+
+      <div class="wizard reveal">
+        <div class="steps-bar">
+          <div class="step-dot active" id="dot-1"><span class="num">1</span> Pilih Produk</div>
+          <div class="step-line"></div>
+          <div class="step-dot" id="dot-2"><span class="num">2</span> Antar &amp; Bayar</div>
+          <div class="step-line"></div>
+          <div class="step-dot" id="dot-3"><span class="num">3</span> Kirim Pesanan</div>
+        </div>
+
+        <!-- STEP 1: PRODUK -->
+        <div class="wizard-panel active" id="panel-1">
+          <h3 class="panel-title">🍌 Pilih Rasa &amp; Jumlah</h3>
+          <p class="panel-sub">Boleh pesan dua-duanya sekaligus, kok!</p>
+
+          <div class="product-pick">
+            <div class="pick-card original" id="card-original">
+              <div class="emoji">🍌</div>
+              <div class="pick-info">
+                <h4>Original — Rp 5.000</h4>
+                <span>Gurih alami, renyah maksimal</span>
+                <div class="qty-stepper">
+                  <button type="button" onclick="changeQty('original',-1)">−</button>
+                  <span class="qty-val" id="qty-original">0</span>
+                  <button type="button" onclick="changeQty('original',1)">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="pick-card coklat" id="card-coklat">
+              <div class="emoji">🍫</div>
+              <div class="pick-info">
+                <h4>Coklat — Rp 6.000</h4>
+                <span>Balutan coklat manis favorit</span>
+                <div class="qty-stepper">
+                  <button type="button" onclick="changeQty('coklat',-1)">−</button>
+                  <span class="qty-val" id="qty-coklat">0</span>
+                  <button type="button" onclick="changeQty('coklat',1)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="total-bar">
+            <span>Total Pesanan</span>
+            <b id="total-step1">Rp 0</b>
+          </div>
+
+          <div class="wizard-nav" style="justify-content:flex-end;">
+            <button type="button" class="btn btn-primary" onclick="goStep(2)">Lanjut Pilih Antar &amp; Bayar →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: ANTAR & BAYAR -->
+        <div class="wizard-panel" id="panel-2">
+          <h3 class="panel-title">🚚 Cara Antar &amp; Bayar</h3>
+          <p class="panel-sub">Pilih salah satu metode di bawah ini.</p>
+
+          <div class="method-tabs">
+            <button type="button" class="method-tab active" data-method="cod" onclick="selectMethod('cod')">💵 COD (Antar Langsung)</button>
+            <button type="button" class="method-tab" data-method="transfer" onclick="selectMethod('transfer')">🏦 Transfer Bank</button>
+            <button type="button" class="method-tab" data-method="qris" onclick="selectMethod('qris')">🔲 QRIS</button>
+            <button type="button" class="method-tab" data-method="ovo" onclick="selectMethod('ovo')">📱 OVO / VA</button>
+          </div>
+
+          <!-- COD -->
+          <div class="method-panel active" id="method-cod">
+            <div class="note-box">💡 Bayar tunai langsung ke kurir saat keripik diantar ke alamatmu. Isi data pengantaran di bawah ini.</div>
+            <div class="field" style="margin-top:20px;">
+              <label>Nama Penerima</label>
+              <input type="text" id="cod-nama" placeholder="Contoh: Sari Wulandari">
+            </div>
+            <div class="field">
+              <label>Alamat Lengkap Tujuan</label>
+              <textarea id="cod-alamat" placeholder="Nama jalan, RT/RW, kelurahan, kecamatan, kota, patokan..."></textarea>
+            </div>
+            <div class="field">
+              <label>Nomor HP / WhatsApp</label>
+              <input type="tel" id="cod-hp" placeholder="Contoh: 0812xxxxxxx">
+            </div>
+          </div>
+
+          <!-- TRANSFER -->
+          <div class="method-panel" id="method-transfer">
+            <div class="pay-box">
+              <span style="font-size:0.85rem; font-weight:700; color:var(--brown-soft);">Transfer ke rekening berikut</span>
+              <div class="acc-number" id="transfer-number">17000213132405</div>
+              <span style="font-size:0.8rem; color:var(--brown-soft);">a.n. Keripik Pisang Wenak</span>
+              <button type="button" class="copy-btn" onclick="copyText('transfer-number', this)">Salin Nomor Rekening</button>
+            </div>
+            <div class="note-box">💡 Setelah transfer, screenshot bukti pembayaran lalu kirimkan lewat WhatsApp bersama pesananmu di Langkah 3.</div>
+            <div class="field" style="margin-top:20px;">
+              <label>Nama Pemilik Rekening Pengirim</label>
+              <input type="text" id="transfer-nama" placeholder="Nama sesuai transfer">
+            </div>
+            <label class="confirm-check">
+              <input type="checkbox" id="transfer-confirm">
+              <span>Saya sudah/akan melakukan transfer dan akan mengirim bukti pembayaran via WhatsApp.</span>
+            </label>
+          </div>
+
+          <!-- QRIS -->
+          <div class="method-panel" id="method-qris">
+            <div class="pay-box">
+              <span style="font-size:0.85rem; font-weight:700; color:var(--brown-soft);">Scan QRIS di bawah ini</span>
+              <svg class="qris-code" viewBox="0 0 100 100">
+                <rect width="100" height="100" fill="#FFFDF8"/>
+                <g fill="#2C1810">
+                  <rect x="6" y="6" width="22" height="22"/><rect x="10" y="10" width="14" height="14" fill="#FFFDF8"/><rect x="14" y="14" width="6" height="6"/>
+                  <rect x="72" y="6" width="22" height="22"/><rect x="76" y="10" width="14" height="14" fill="#FFFDF8"/><rect x="80" y="14" width="6" height="6"/>
+                  <rect x="6" y="72" width="22" height="22"/><rect x="10" y="76" width="14" height="14" fill="#FFFDF8"/><rect x="14" y="80" width="6" height="6"/>
+                  <rect x="34" y="6" width="4" height="4"/><rect x="42" y="6" width="4" height="4"/><rect x="54" y="6" width="4" height="4"/><rect x="62" y="6" width="4" height="4"/>
+                  <rect x="34" y="14" width="4" height="4"/><rect x="50" y="14" width="4" height="4"/><rect x="58" y="14" width="4" height="4"/>
+                  <rect x="38" y="22" width="4" height="4"/><rect x="46" y="22" width="4" height="4"/><rect x="62" y="22" width="4" height="4"/>
+                  <rect x="34" y="34" width="4" height="4"/><rect x="42" y="34" width="4" height="4"/><rect x="50" y="34" width="4" height="4"/><rect x="66" y="34" width="4" height="4"/><rect x="80" y="34" width="4" height="4"/><rect x="88" y="34" width="4" height="4"/>
+                  <rect x="6" y="42" width="4" height="4"/><rect x="18" y="42" width="4" height="4"/><rect x="38" y="42" width="4" height="4"/><rect x="58" y="42" width="4" height="4"/><rect x="74" y="42" width="4" height="4"/><rect x="90" y="42" width="4" height="4"/>
+                  <rect x="34" y="50" width="4" height="4"/><rect x="46" y="50" width="4" height="4"/><rect x="62" y="50" width="4" height="4"/><rect x="70" y="50" width="4" height="4"/><rect x="86" y="50" width="4" height="4"/>
+                  <rect x="6" y="58" width="4" height="4"/><rect x="22" y="58" width="4" height="4"/><rect x="42" y="58" width="4" height="4"/><rect x="54" y="58" width="4" height="4"/><rect x="78" y="58" width="4" height="4"/>
+                  <rect x="34" y="66" width="4" height="4"/><rect x="50" y="66" width="4" height="4"/><rect x="66" y="66" width="4" height="4"/><rect x="82" y="66" width="4" height="4"/><rect x="90" y="66" width="4" height="4"/>
+                  <rect x="38" y="74" width="4" height="4"/><rect x="46" y="74" width="4" height="4"/><rect x="58" y="80" width="4" height="4"/><rect x="66" y="74" width="4" height="4"/><rect x="74" y="80" width="4" height="4"/><rect x="82" y="74" width="4" height="4"/>
+                  <rect x="34" y="88" width="4" height="4"/><rect x="42" y="88" width="4" height="4"/><rect x="54" y="88" width="4" height="4"/><rect x="62" y="88" width="4" height="4"/><rect x="70" y="88" width="4" height="4"/><rect x="86" y="88" width="4" height="4"/>
+                </g>
+              </svg>
+              <span style="font-size:0.78rem; color:var(--brown-soft);">QRIS Keripik Pisang Wenak</span>
+            </div>
+            <div class="note-box">⚠️ Ini contoh tampilan QRIS untuk desain — belum bisa dipindai sungguhan. Ganti gambar ini dengan foto QRIS asli dari akun merchant (bank/e-wallet) sebelum dipakai jualan.</div>
+            <label class="confirm-check">
+              <input type="checkbox" id="qris-confirm">
+              <span>Saya sudah scan &amp; menyelesaikan pembayaran QRIS.</span>
+            </label>
+          </div>
+
+          <!-- OVO / VA -->
+          <div class="method-panel" id="method-ovo">
+            <div class="pay-box">
+              <span style="font-size:0.85rem; font-weight:700; color:var(--brown-soft);">Kirim ke nomor OVO / Virtual Account DANA</span>
+              <div class="acc-number" id="ovo-number">085274197048</div>
+              <span style="font-size:0.8rem; color:var(--brown-soft);">a.n. Keripik Pisang Wenak</span>
+              <button type="button" class="copy-btn" onclick="copyText('ovo-number', this)">Salin Nomor</button>
+            </div>
+            <div class="note-box">💡 Setelah membayar, screenshot bukti transaksi dan kirimkan lewat WhatsApp bersama pesananmu di Langkah 3.</div>
+            <label class="confirm-check">
+              <input type="checkbox" id="ovo-confirm">
+              <span>Saya sudah/akan menyelesaikan pembayaran dan akan mengirim bukti via WhatsApp.</span>
+            </label>
+          </div>
+
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-ghost" onclick="goStep(1)">← Kembali</button>
+            <button type="button" class="btn btn-primary" onclick="goStep(3)">Lanjut Ringkasan →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: RINGKASAN -->
+        <div class="wizard-panel" id="panel-3">
+          <div id="summary-view">
+            <h3 class="panel-title">📋 Ringkasan Pesanan</h3>
+            <p class="panel-sub">Cek dulu sebelum dikirim ke WhatsApp kami, ya!</p>
+            <ul class="summary-list" id="summary-list"></ul>
+            <div class="wizard-nav">
+              <button type="button" class="btn btn-ghost" onclick="goStep(2)">← Kembali</button>
+              <button type="button" class="btn btn-primary" onclick="sendOrder()">💬 Kirim Pesanan via WhatsApp</button>
+            </div>
+          </div>
+          <div class="success-state" id="success-view" style="display:none;">
+            <div class="big-emoji">🎉🍌</div>
+            <h3>Pesanan Siap Dikirim!</h3>
+            <p>WhatsApp sudah terbuka dengan detail pesananmu. Tinggal tekan kirim di sana, dan tim kami akan segera memprosesnya. Terima kasih sudah memesan Keripik Pisang Wenak!</p>
+            <button type="button" class="btn btn-outline" onclick="resetWizard()">Buat Pesanan Baru</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KELUHAN -->
+  <section class="keluhan" id="keluhan">
+    <div class="container">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <span class="eyebrow" style="margin-left:auto;margin-right:auto;">Kami Dengarkan Kamu</span>
+        <h2>Ada Keluhan atau Masukan?</h2>
+        <p style="margin-left:auto;margin-right:auto;">Kualitas keripikmu tidak sesuai, pesanan telat, atau ada saran? Sampaikan langsung, kami akan segera menindaklanjuti.</p>
+      </div>
+
+      <div class="keluhan-box reveal">
+        <div class="field">
+          <label>Nama Kamu</label>
+          <input type="text" id="k-nama" placeholder="Nama lengkap">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Nomor HP / WhatsApp</label>
+            <input type="tel" id="k-hp" placeholder="Contoh: 0812xxxxxxx">
+          </div>
+          <div class="field">
+            <label>Jenis Keluhan</label>
+            <input type="text" id="k-jenis" placeholder="Contoh: Pesanan telat, kemasan rusak, dll">
+          </div>
+        </div>
+        <div class="field">
+          <label>Ceritakan Keluhanmu</label>
+          <textarea id="k-pesan" placeholder="Tuliskan detail kejadian supaya kami bisa bantu lebih cepat..."></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="sendComplaint()" style="width:100%; justify-content:center;">📨 Kirim Keluhan ke WhatsApp</button>
+        <p style="text-align:center; font-size:0.8rem; color:var(--brown-soft); margin-top:14px;">Atau kirim email ke <a href="mailto:keripikpisangwenak@gmail.com" style="text-decoration:underline;">keripikpisangwenak@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="kontak" id="kontak">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Hubungi Kami</span>
+        <h2>Yuk, Pesan Keripik<br>Pisang Wenak</h2>
+        <p>Pesan langsung via WhatsApp, atau kunjungi tempat produksi kami di Padang Pariaman.</p>
+      </div>
+
+      <div class="kontak-grid">
+        <div class="info-list">
+          <div class="info-item reveal">
+            <div class="info-icon">💬</div>
+            <div>
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/6285373942349" target="_blank">+62 853-7394-2349</a>
+            </div>
+          </div>
+          <div class="info-item reveal">
+            <div class="info-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:keripikpisangwenak@gmail.com">keripikpisangwenak@gmail.com</a>
+            </div>
+          </div>
+          <div class="info-item reveal">
+            <div class="info-icon">📍</div>
+            <div>
+              <h4>Alamat</h4>
+              <p>Teluk Belibi, Punggung Kasik, Lubuk Alung,<br>Padang Pariaman, Sumatra Barat, Indonesia</p>
+            </div>
+          </div>
+          <div class="info-item reveal">
+            <div class="info-icon">⏰</div>
+            <div>
+              <h4>Jam Operasional</h4>
+              <p>Setiap hari, 07.00 – 22.00 WIB</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="kontak-card reveal">
+          <h3>Siap Diantar ke Rumahmu 🍌</h3>
+          <p>Klik tombol di bawah untuk chat langsung dengan kami di WhatsApp — tanya stok, ongkir, atau langsung pesan varian favoritmu.</p>
+          <a href="https://wa.me/6285373942349" target="_blank" class="btn btn-primary">💬 Chat WhatsApp Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p class="script">Keripik Pisang Wenak</p>
+    <p style="margin-top:8px;">© 2026 Keripik Pisang Wenak — Camilan Rumahan dari Padang Pariaman, Sumatra Barat.</p>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ===== CHECKOUT WIZARD LOGIC ===== */
+  const WA_NUMBER = '6285373942349';
+  const PRICES = { original: 5000, coklat: 6000 };
+  let qty = { original: 0, coklat: 0 };
+  let currentMethod = 'cod';
+
+  function formatRupiah(n){ return 'Rp ' + n.toLocaleString('id-ID'); }
+
+  function changeQty(flavor, delta){
+    qty[flavor] = Math.max(0, qty[flavor] + delta);
+    document.getElementById('qty-' + flavor).textContent = qty[flavor];
+    document.getElementById('card-' + flavor).classList.toggle('filled', qty[flavor] > 0);
+    updateTotal();
+  }
+
+  function getTotal(){
+    return qty.original * PRICES.original + qty.coklat * PRICES.coklat;
+  }
+
+  function updateTotal(){
+    document.getElementById('total-step1').textContent = formatRupiah(getTotal());
+  }
+
+  function goStep(step){
+    if(step === 2 && getTotal() === 0){
+      alert('Yuk pilih dulu minimal 1 keripik sebelum lanjut 🍌');
+      return;
+    }
+    if(step === 3 && !validateMethod()){ return; }
+
+    document.querySelectorAll('.wizard-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + step).classList.add('active');
+
+    [1,2,3].forEach(n => {
+      const dot = document.getElementById('dot-' + n);
+      dot.classList.remove('active','done');
+      if(n < step) dot.classList.add('done');
+      if(n === step) dot.classList.add('active');
+    });
+
+    if(step === 3) buildSummary();
+    document.getElementById('checkout').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function selectMethod(method){
+    currentMethod = method;
+    document.querySelectorAll('.method-tab').forEach(t => t.classList.toggle('active', t.dataset.method === method));
+    document.querySelectorAll('.method-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('method-' + method).classList.add('active');
+  }
+
+  function validateMethod(){
+    if(currentMethod === 'cod'){
+      const nama = document.getElementById('cod-nama').value.trim();
+      const alamat = document.getElementById('cod-alamat').value.trim();
+      const hp = document.getElementById('cod-hp').value.trim();
+      if(!nama || !alamat || !hp){
+        alert('Mohon lengkapi nama, alamat, dan nomor HP untuk pengantaran COD ya 🙏');
+        return false;
+      }
+    } else if(currentMethod === 'transfer'){
+      if(!document.getElementById('transfer-confirm').checked){
+        alert('Centang dulu konfirmasi transfer sebelum lanjut ya 🙏');
+        return false;
+      }
+    } else if(currentMethod === 'qris'){
+      if(!document.getElementById('qris-confirm').checked){
+        alert('Centang dulu konfirmasi pembayaran QRIS sebelum lanjut ya 🙏');
+        return false;
+      }
+    } else if(currentMethod === 'ovo'){
+      if(!document.getElementById('ovo-confirm').checked){
+        alert('Centang dulu konfirmasi pembayaran sebelum lanjut ya 🙏');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function methodLabel(){
+    return { cod:'COD (Antar Langsung, Bayar Tunai)', transfer:'Transfer Bank', qris:'QRIS', ovo:'OVO / Virtual Account' }[currentMethod];
+  }
+
+  function buildSummary(){
+    const list = document.getElementById('summary-list');
+    list.innerHTML = '';
+    const addLine = (label, value, isTotal) => {
+      const li = document.createElement('li');
+      if(isTotal) li.classList.add('total-line');
+      li.innerHTML = `<span>${label}</span><b>${value}</b>`;
+      list.appendChild(li);
+    };
+    if(qty.original > 0) addLine('Keripik Original x' + qty.original, formatRupiah(qty.original * PRICES.original));
+    if(qty.coklat > 0) addLine('Keripik Coklat x' + qty.coklat, formatRupiah(qty.coklat * PRICES.coklat));
+    addLine('Metode', methodLabel());
+    if(currentMethod === 'cod'){
+      addLine('Penerima', document.getElementById('cod-nama').value.trim());
+      addLine('Alamat', document.getElementById('cod-alamat').value.trim());
+      addLine('No. HP', document.getElementById('cod-hp').value.trim());
+    }
+    addLine('Total Bayar', formatRupiah(getTotal()), true);
+  }
+
+  function copyText(elId, btn){
+    const text = document.getElementById(elId).textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const original = btn.textContent;
+      btn.textContent = '✓ Tersalin!';
+      setTimeout(() => btn.textContent = original, 1800);
+    }).catch(() => alert('Nomor: ' + text));
+  }
+
+  function sendOrder(){
+    let lines = ['Halo Keripik Pisang Wenak, saya mau pesan:'];
+    if(qty.original > 0) lines.push(`- Original x${qty.original} = ${formatRupiah(qty.original*PRICES.original)}`);
+    if(qty.coklat > 0) lines.push(`- Coklat x${qty.coklat} = ${formatRupiah(qty.coklat*PRICES.coklat)}`);
+    lines.push(`Total: ${formatRupiah(getTotal())}`);
+    lines.push(`Metode: ${methodLabel()}`);
+    if(currentMethod === 'cod'){
+      lines.push(`Nama: ${document.getElementById('cod-nama').value.trim()}`);
+      lines.push(`Alamat: ${document.getElementById('cod-alamat').value.trim()}`);
+      lines.push(`No HP: ${document.getElementById('cod-hp').value.trim()}`);
+    } else {
+      lines.push('(Bukti pembayaran akan saya kirimkan di chat ini)');
+    }
+    const msg = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+    document.getElementById('summary-view').style.display = 'none';
+    document.getElementById('success-view').style.display = 'block';
+  }
+
+  function resetWizard(){
+    qty.original = 0; qty.coklat = 0;
+    document.getElementById('qty-original').textContent = 0;
+    document.getElementById('qty-coklat').textContent = 0;
+    document.getElementById('card-original').classList.remove('filled');
+    document.getElementById('card-coklat').classList.remove('filled');
+    updateTotal();
+    ['cod-nama','cod-alamat','cod-hp','transfer-nama'].forEach(id => document.getElementById(id).value = '');
+    ['transfer-confirm','qris-confirm','ovo-confirm'].forEach(id => document.getElementById(id).checked = false);
+    document.getElementById('summary-view').style.display = 'block';
+    document.getElementById('success-view').style.display = 'none';
+    selectMethod('cod');
+    goStep(1);
+  }
+
+  /* ===== KELUHAN FORM ===== */
+  function sendComplaint(){
+    const nama = document.getElementById('k-nama').value.trim();
+    const hp = document.getElementById('k-hp').value.trim();
+    const jenis = document.getElementById('k-jenis').value.trim();
+    const pesan = document.getElementById('k-pesan').value.trim();
+    if(!nama || !hp || !pesan){
+      alert('Mohon isi nama, nomor HP, dan ceritakan keluhanmu ya 🙏');
+      return;
+    }
+    let lines = ['Halo Keripik Pisang Wenak, saya ingin menyampaikan keluhan:', `Nama: ${nama}`, `No HP: ${hp}`];
+    if(jenis) lines.push(`Jenis Keluhan: ${jenis}`);
+    lines.push(`Detail: ${pesan}`);
+    const msg = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+  }
+</script>
+
+</body>
+</html>
